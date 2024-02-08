@@ -1,6 +1,36 @@
 import "./App.css";
-
+import NewProjectForm from "./components/NewProjectForm";
+import NoProjectSelected from "./components/NoProjectSelected";
+import { useState } from "react";
 function App() {
+  const projects = {
+    projectList: [],
+    currentProject: null,
+  };
+
+  //capire se ci sono progetti
+
+  const [isFormActive, setIsFormActive] = useState(false);
+
+  function handleFormCancel() {
+    setIsFormActive(false);
+  }
+
+  function handleAddProject() {
+    setIsFormActive(true);
+  }
+
+  let areThereProjects = projects.projectList.length > 0;
+
+  let currentProject = <NoProjectSelected onAdd={handleAddProject} />;
+  if (areThereProjects) {
+    currentProject = (
+      <>
+        <h1>PRIMO PROGETTO</h1>
+      </>
+    );
+  }
+
   return (
     <>
       <nav>
@@ -8,17 +38,15 @@ function App() {
         <button>+ Add Project</button>
         <h3>My project/s</h3>
         <ul>
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
-          <li>4</li>
+          <li>My Project</li>
         </ul>
       </nav>
       <main>
-        <img src="" alt="" width="72" height="72" />
-        <h2>No Project Selected</h2>
-        <p>Select a project or get started with a new one</p>
-        <button> Create new project</button>
+        {isFormActive ? (
+          <NewProjectForm onCancel={handleFormCancel} />
+        ) : (
+          currentProject
+        )}
       </main>
     </>
   );
