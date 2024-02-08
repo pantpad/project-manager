@@ -33,6 +33,8 @@ button {
   border: none;
   font: inherit;
   cursor: pointer;
+  border: 1px solid black;
+  padding: 1em;
 }
 
 html {
