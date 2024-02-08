@@ -1,5 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
+:root {
+  --button-add-bg: #44403c;
+  --nav-bg: #1c1917;
+  --nav-main-text: #e7e5e4;
+  --nav-secondary-text: #fafaf9;
+  --nav-bg-selected-text: #292524;
+}
+
 *,
 *::before,
 *::after {
@@ -33,8 +41,6 @@ button {
   border: none;
   font: inherit;
   cursor: pointer;
-  border: 1px solid black;
-  padding: 1em;
 }
 
 html {
@@ -43,6 +49,61 @@ html {
 }
 
 body {
-  background-color: white;
   height: 100svh;
+  background-color: #ccc;
+}
+
+#root {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+}
+
+nav {
+  flex: 1;
+  background-color: var(--nav-bg);
+  padding: 4rem 2rem;
+  border-top-right-radius: 10px;
+}
+
+nav h2 {
+  color: var(--nav-main-text);
+}
+
+nav ul {
+  overflow: auto;
+  max-height: calc(100svh - 300px);
+}
+
+nav li {
+  color: var(--nav-secondary-text);
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+
+.current-project {
+  background-color: var(--nav-bg-selected-text);
+}
+
+.add-btn {
+  border-radius: 8px;
+  width: 100%;
+  color: var(--nav-main-text);
+  background-color: var(--nav-bg-selected-text);
+  padding: 1em 2em;
+  margin: 2rem 0;
+}
+
+main {
+  flex: 4;
+  background-color: inherit;
+  padding: 4rem 2rem;
+}
+
+.no-project-container {
+  text-align: center;
+}
+
+.no-project-container > * {
+  margin-bottom: 15px;
 }

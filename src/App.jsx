@@ -1,14 +1,33 @@
+/* eslint-disable react/no-unknown-property */
 import "./App.css";
 import NewProjectForm from "./components/NewProjectForm";
 import NoProjectSelected from "./components/NoProjectSelected";
 import { useState } from "react";
-function App() {
-  const projects = {
-    projectList: [],
-    currentProject: null,
-  };
+import Project from "./components/Project";
 
-  //capire se ci sono progetti
+const defaultProjects = {
+  projectList: [
+    {
+      id: "p1",
+      title: "Primo Progetto",
+      description: "Test del primo progetto",
+      date: new Date(),
+      tasks: [],
+    },
+    {
+      id: "p2",
+      title: "Secondo Progetto",
+      description: "Test del secondo progetto",
+      date: new Date(),
+      tasks: [],
+    },
+  ],
+  currentProject: null,
+};
+
+function App() {
+  const [projects, setProjects] = useState(defaultProjects);
+  console.log(projects);
 
   const [isFormActive, setIsFormActive] = useState(false);
 
@@ -20,25 +39,39 @@ function App() {
     setIsFormActive(true);
   }
 
-  let areThereProjects = projects.projectList.length > 0;
-
-  let currentProject = <NoProjectSelected onAdd={handleAddProject} />;
-  if (areThereProjects) {
-    currentProject = (
-      <>
-        <h1>PRIMO PROGETTO</h1>
-      </>
-    );
+  function handleProjectChange(index) {
+    setIsFormActive(false);
+    setProjects((prevProjects) => ({ ...prevProjects, currentProject: index }));
   }
+
+  let currentProject = projects.currentProject ? (
+    <Project
+      project={projects.projectList.find(
+        (project) => project.id == projects.currentProject
+      )}
+    />
+  ) : (
+    <NoProjectSelected onAdd={handleAddProject} />
+  );
 
   return (
     <>
       <nav>
         <h2>YOUR PROJECTS</h2>
-        <button>+ Add Project</button>
-        <h3>My project/s</h3>
+        <button className="add-btn" onClick={handleAddProject}>
+          + Add Project
+        </button>
         <ul>
-          <li>My Project</li>
+          {projects.projectList.map((project) => {
+            return (
+              <li
+                key={project.id}
+                onClick={() => handleProjectChange(project.id)}
+              >
+                {project.title}
+              </li>
+            );
+          })}
         </ul>
       </nav>
       <main>
