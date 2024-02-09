@@ -37,7 +37,6 @@ function App() {
   }
 
   //project
-
   function addProject(title, description, date) {
     setProjects((prevProjects) => {
       const newList = [
@@ -57,6 +56,18 @@ function App() {
     });
   }
 
+  function deleteProject(id) {
+    setProjects((prevProjects) => {
+      const newList = [
+        ...prevProjects.projectList.filter((project) => project.id != id),
+      ];
+      return {
+        projectList: newList,
+        currentProject: null,
+      };
+    });
+  }
+
   function handleProjectChange(index) {
     setIsFormActive(false);
     setProjects((prevProjects) => ({ ...prevProjects, currentProject: index }));
@@ -68,6 +79,7 @@ function App() {
       project={projects.projectList.find(
         (project) => project.id == projects.currentProject
       )}
+      onDelete={deleteProject}
     />
   ) : (
     <NoProjectSelected onAdd={handleFormOpen} />

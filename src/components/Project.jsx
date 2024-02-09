@@ -2,13 +2,15 @@
 import Button from "./ui/Button/Button";
 import dateFormatter from "../utils/dateHandler";
 
-export default function Project({ project }) {
+export default function Project({ project, onDelete }) {
   return (
     <div id="project-container">
       <div className="project-details">
         <div className="title-delete-wrapper">
           <h1>{project.title}</h1>
-          <Button variant="delete">Delete</Button>
+          <Button variant="delete" onClick={() => onDelete(project.id)}>
+            Delete
+          </Button>
         </div>
         <p className="date">{dateFormatter(project.date)}</p>
         <p className="description">{project.description}</p>
