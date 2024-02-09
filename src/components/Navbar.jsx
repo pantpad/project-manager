@@ -17,7 +17,13 @@ export default function Navbar({ addProject, projects, projectChange }) {
       <ul>
         {projects.projectList.map((project) => {
           return (
-            <li key={project.id} onClick={() => projectChange(project.id)}>
+            <li
+              className={
+                project.id == projects.currentProject ? "current-project" : ""
+              }
+              key={project.id}
+              onClick={() => projectChange(project.id)}
+            >
               {project.title}
             </li>
           );

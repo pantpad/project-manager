@@ -5,7 +5,12 @@ import dateFormatter from "../utils/dateHandler";
 
 import { useRef } from "react";
 
-export default function Project({ project, onProjectDelete, onTaskDelete }) {
+export default function Project({
+  project,
+  onProjectDelete,
+  onTaskDelete,
+  onTaskAdd,
+}) {
   const taskDescription = useRef();
 
   return (
@@ -28,7 +33,7 @@ export default function Project({ project, onProjectDelete, onTaskDelete }) {
             <Input ref={taskDescription} />
             <Button
               onClick={() => {
-                console.log(taskDescription.current.value);
+                onTaskAdd(project, taskDescription.current.value);
               }}
             >
               Add

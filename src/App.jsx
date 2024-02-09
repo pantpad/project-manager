@@ -68,6 +68,7 @@ function App() {
         currentProject: prevProjects.currentProject,
       };
     });
+    handleFormOpen();
   }
 
   function deleteProject(id) {
@@ -88,6 +89,29 @@ function App() {
   }
 
   //tasks
+  function addTask(project, taskDescription) {
+    setProjects((prevProjects) => {
+      const updatedProjects = prevProjects.projectList.map((proj) => {
+        if (proj.id == project.id) {
+          const newTasks = [
+            {
+              taskId: `t${project.tasks.length + 1}`,
+              description: taskDescription,
+            },
+            ...project.tasks,
+          ];
+          return { ...proj, tasks: newTasks };
+        }
+        return proj;
+      });
+
+      return {
+        ...prevProjects,
+        projectList: updatedProjects,
+      };
+    });
+  }
+
   function deleteTask(taskId, project) {
     setProjects((prevProjects) => {
       const newTasks = project.tasks.filter((task) => task.taskId != taskId);
@@ -113,6 +137,7 @@ function App() {
       )}
       onProjectDelete={deleteProject}
       onTaskDelete={deleteTask}
+      onTaskAdd={addTask}
     />
   ) : (
     <NoProjectSelected onAdd={handleFormOpen} />

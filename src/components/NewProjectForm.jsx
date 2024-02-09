@@ -12,14 +12,20 @@ export default function NewProjectForm({ onCancel, onAdd }) {
 
   return (
     <>
-      <form>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          title.current.value = "";
+          description.current.value = "";
+          date.current.value = "";
+        }}
+      >
         <div className="action-buttons">
           <Button onClick={onCancel}>Cancel</Button>
           <Button
             type="submit"
             variant="save"
-            onClick={(e) => {
-              e.preventDefault();
+            onClick={() => {
               onAdd(
                 title.current.value,
                 description.current.value,
