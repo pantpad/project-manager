@@ -17,7 +17,7 @@
 
 .primary {
   color: lightgrey;
-  padding: var(--padding-sm);
+  padding: var(--padding-md);
   border-radius: var(--border-radius-md);
   background-color: var(--button-add-bg);
 }
@@ -33,9 +33,21 @@
 .save {
   margin: 0 1rem;
   color: white;
-  padding: var(--padding-lg);
+  padding: var(--padding-md);
   border-radius: var(--border-radius-sm);
   background-color: var(--nav-bg-selected-text);
+}
+
+.delete {
+  margin: 0 1rem;
+  color: aliceblue;
+  background-color: brown;
+  padding: var(--padding-md);
+  border-radius: var(--border-radius-sm);
+}
+
+.clear {
+  color: brown;
 }
 
 /* Sizes */

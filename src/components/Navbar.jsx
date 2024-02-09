@@ -1,14 +1,11 @@
 /* eslint-disable react/prop-types */
 
 import Button from "./ui/Button/Button";
-import Input from "./ui/Input/Input";
 
 export default function Navbar({ addProject, projects, projectChange }) {
   return (
     <nav>
       <h2>YOUR PROJECTS</h2>
-      <Input />
-      <Input isInput={false} />
       <Button
         className="pesce"
         variant="secondary"

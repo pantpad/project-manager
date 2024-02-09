@@ -2,9 +2,10 @@
 import "./App.css";
 import NewProjectForm from "./components/NewProjectForm";
 import NoProjectSelected from "./components/NoProjectSelected";
-import { useState } from "react";
 import Project from "./components/Project";
 import Navbar from "./components/Navbar";
+
+import { useState } from "react";
 
 const defaultProjects = {
   projectList: [
@@ -28,10 +29,9 @@ const defaultProjects = {
 
 function App() {
   const [projects, setProjects] = useState(defaultProjects);
-  console.log(projects);
-
   const [isFormActive, setIsFormActive] = useState(false);
 
+  //gestione apertura form
   function handleFormCancel() {
     setIsFormActive(false);
   }
@@ -39,12 +39,35 @@ function App() {
   function handleAddProject() {
     setIsFormActive(true);
   }
+  /////////////////////////
+
+  //project
+
+  function addProject(title, description, date) {
+    setProjects((prevProjects) => {
+      const newList = [
+        ...prevProjects.projectList,
+        {
+          id: `p${prevProjects.projectList.length + 1}`,
+          title: title,
+          description: description,
+          date: new Date(date),
+          tasks: [],
+        },
+      ];
+      return {
+        projectList: newList,
+        currentProject: prevProjects.currentProject,
+      };
+    });
+  }
 
   function handleProjectChange(index) {
     setIsFormActive(false);
     setProjects((prevProjects) => ({ ...prevProjects, currentProject: index }));
   }
 
+  //Possibile migliorare la logica mettendo noProjectSelected dentro Project
   let currentProject = projects.currentProject ? (
     <Project
       project={projects.projectList.find(
@@ -57,10 +80,14 @@ function App() {
 
   return (
     <>
-      <Navbar addProject={handleAddProject} projects={projects} projectChange={handleProjectChange} />
+      <Navbar
+        addProject={handleAddProject}
+        projects={projects}
+        projectChange={handleProjectChange}
+      />
       <main>
         {isFormActive ? (
-          <NewProjectForm onCancel={handleFormCancel} />
+          <NewProjectForm onCancel={handleFormCancel} onAdd={addProject} />
         ) : (
           currentProject
         )}

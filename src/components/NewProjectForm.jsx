@@ -1,24 +1,46 @@
 /* eslint-disable react/prop-types */
-export default function NewProjectForm({ onCancel }) {
+
+import Button from "./ui/Button/Button";
+import Input from "./ui/Input/Input";
+
+import { useRef } from "react";
+
+export default function NewProjectForm({ onCancel, onAdd }) {
+  const title = useRef();
+  const description = useRef();
+  const date = useRef();
+
   return (
     <>
       <form>
         <div className="action-buttons">
-          <button onClick={onCancel}>Cancel</button>
-          <button className="save-btn">Save</button>
+          <Button onClick={onCancel}>Cancel</Button>
+          <Button
+            variant="save"
+            onClick={(e) => {
+              e.preventDefault();
+              onAdd(
+                title.current.value,
+                description.current.value,
+                date.current.value
+              );
+            }}
+          >
+            Save
+          </Button>
         </div>
         <div className="form-inputs">
           <div>
             <label>TITLE</label>
-            <input type="text" />
+            <Input type="text" ref={title} />
           </div>
           <div>
             <label>DESCRIPTION</label>
-            <input type="text" />
+            <Input isInput={false} ref={description} />
           </div>
           <div>
             <label>DUE DATE</label>
-            <input type="date" />
+            <Input type="date" ref={date} />
           </div>
         </div>
       </form>

@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-
+import Button from "./ui/Button/Button";
 import dateFormatter from "../utils/dateHandler";
 
 export default function Project({ project }) {
@@ -8,7 +8,7 @@ export default function Project({ project }) {
       <div className="project-details">
         <div className="title-delete-wrapper">
           <h1>{project.title}</h1>
-          <button>Delete</button>
+          <Button variant="delete">Delete</Button>
         </div>
         <p className="date">{dateFormatter(project.date)}</p>
         <p className="description">{project.description}</p>
@@ -19,21 +19,21 @@ export default function Project({ project }) {
           <label> New task</label>
           <div className="input-wrapper">
             <input />
-            <button className="add-btn-blank"> Add </button>
+            <Button> Add </Button>
           </div>
         </div>
         <ul className="tasks-list">
           <li>
             <span>Task 1</span>
-            <button>Clear</button>
+            <Button variant="clear">Clear</Button>
           </li>
           <li>
             <span>Task 1</span>
-            <button>Clear</button>
+            <Button variant="clear">Clear</Button>
           </li>
           <li>
             <span>Task 1</span>
-            <button>Clear</button>
+            <Button variant="clear">Clear</Button>
           </li>
         </ul>
         <p className="no-tasks">This project does not have any tasks yet.</p>
