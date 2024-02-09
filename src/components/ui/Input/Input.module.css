@@ -1,0 +1,48 @@
+.base {
+  font: inherit;
+  border-radius: 4px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  padding: 0.25rem;
+}
+
+/* Variants */
+.player {
+  border: 1px solid var(--player-main-color);
+  background-color: var(--player-input-bg);
+  color: var(--player-input-color);
+}
+
+/* Sizes */
+.small {
+  font-size: var(--fs-small);
+}
+
+.medium {
+  font-size: var(--fs-mid);
+}
+
+.big {
+  font-size: var(--fs-big);
+}
+
+.bigger {
+  font-size: var(--fs-bigger);
+}
+
+.active {
+  background-color: rgba(133, 133, 133, 0.1);
+}
+
+.active:is(:focus, :hover) {
+  animation: 1s flash infinite alternate-reverse;
+}
+
+@keyframes flash {
+  from {
+    opacity: 0.25;
+  }
+  to {
+    opacity: 1;
+  }
+}
