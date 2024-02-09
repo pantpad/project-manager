@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import styles from "./Button.module.css";
-import { styleClsx } from "../../../util/styleComponent";
+import { styleClsx } from "../../../utils/styleComponent";
 
 export default function Button({
   children,

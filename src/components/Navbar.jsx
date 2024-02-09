@@ -1,11 +1,19 @@
 /* eslint-disable react/prop-types */
+
+import Button from "./ui/Button/Button";
+
 export default function Navbar({ addProject, projects, projectChange }) {
   return (
     <nav>
       <h2>YOUR PROJECTS</h2>
-      <button className="add-btn" onClick={addProject}>
+      <Button
+        className="pesce"
+        variant="secondary"
+        size="big"
+        onClick={addProject}
+      >
         + Add Project
-      </button>
+      </Button>
       <ul>
         {projects.projectList.map((project) => {
           return (
