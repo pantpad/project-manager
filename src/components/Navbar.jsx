@@ -9,7 +9,7 @@ export default function Navbar({ addProject, projects, projectChange }) {
       <Button
         className="pesce"
         variant="secondary"
-        size="big"
+        size="medium"
         onClick={addProject}
       >
         + Add Project

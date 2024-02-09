@@ -20,12 +20,14 @@ export default forwardRef(function Modal({ className, ...props }, ref) {
 
   return createPortal(
     <dialog ref={dialog} className={styleClsx(styles, className)} {...props}>
-      <h1>Ciao</h1>
-      <form method="dialog">
-        <Button variant="primary" size="medium">
-          Okay
-        </Button>
-      </form>
+        <h2>Invalid input</h2>
+        <p>Oops... looks like you forgot to enter a value.</p>
+        <p>Please make sure you provide a valid value for every input field.</p>
+        <form method="dialog">
+          <Button variant="primary" size="medium">
+            Okay
+          </Button>
+        </form>
     </dialog>,
     document.getElementById("modal")
   );
