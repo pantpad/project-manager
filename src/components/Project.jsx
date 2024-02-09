@@ -4,9 +4,9 @@ import dateFormatter from "../utils/dateHandler";
 
 export default function Project({ project }) {
   return (
-    <>
-      <div className="project-description">
-        <div>
+    <div id="project-container">
+      <div className="project-details">
+        <div className="title-delete-wrapper">
           <h1>{project.title}</h1>
           <button>Delete</button>
         </div>
@@ -16,14 +16,28 @@ export default function Project({ project }) {
       <div className="project-tasks">
         <h2>Tasks</h2>
         <div>
-          <label> Add new task</label>
+          <label> New task</label>
           <div>
             <input />
             <button className="add-btn-blank"> Add </button>
           </div>
         </div>
-        <p>This project does not have any tasks yet.</p>
+        <ul className="tasks-list">
+          <li>
+            <span>Task 1</span>
+            <button>Clear</button>
+          </li>
+          <li>
+            <span>Task 1</span>
+            <button>Clear</button>
+          </li>
+          <li>
+            <span>Task 1</span>
+            <button>Clear</button>
+          </li>
+        </ul>
+        <p className="no-tasks">This project does not have any tasks yet.</p>
       </div>
-    </>
+    </div>
   );
 }
