@@ -1,14 +1,19 @@
 /* eslint-disable react/prop-types */
 import Button from "./ui/Button/Button";
+import Input from "./ui/Input/Input";
 import dateFormatter from "../utils/dateHandler";
 
-export default function Project({ project, onDelete }) {
+import { useRef } from "react";
+
+export default function Project({ project, onProjectDelete, onTaskDelete }) {
+  const taskDescription = useRef();
+
   return (
     <div id="project-container">
       <div className="project-details">
         <div className="title-delete-wrapper">
           <h1>{project.title}</h1>
-          <Button variant="delete" onClick={() => onDelete(project.id)}>
+          <Button variant="delete" onClick={() => onProjectDelete(project.id)}>
             Delete
           </Button>
         </div>
@@ -20,25 +25,35 @@ export default function Project({ project, onDelete }) {
         <div>
           <label> New task</label>
           <div className="input-wrapper">
-            <input />
-            <Button> Add </Button>
+            <Input ref={taskDescription} />
+            <Button
+              onClick={() => {
+                console.log(taskDescription.current.value);
+              }}
+            >
+              Add
+            </Button>
           </div>
         </div>
-        <ul className="tasks-list">
-          <li>
-            <span>Task 1</span>
-            <Button variant="clear">Clear</Button>
-          </li>
-          <li>
-            <span>Task 1</span>
-            <Button variant="clear">Clear</Button>
-          </li>
-          <li>
-            <span>Task 1</span>
-            <Button variant="clear">Clear</Button>
-          </li>
-        </ul>
-        <p className="no-tasks">This project does not have any tasks yet.</p>
+        {project.tasks.length > 0 ? (
+          <ul className="tasks-list">
+            {project.tasks.map((task) => {
+              return (
+                <li key={task.taskId}>
+                  <span>{task.description}</span>
+                  <Button
+                    variant="clear"
+                    onClick={() => onTaskDelete(task.taskId, project)}
+                  >
+                    Clear
+                  </Button>
+                </li>
+              );
+            })}
+          </ul>
+        ) : (
+          <p className="no-tasks">This project does not have any tasks yet.</p>
+        )}
       </div>
     </div>
   );

@@ -14,14 +14,28 @@ const defaultProjects = {
       title: "Primo Progetto",
       description: "Test del primo progetto",
       date: new Date(),
-      tasks: [],
+      tasks: [
+        {
+          taskId: "t1",
+          description: "Prima task",
+        },
+      ],
     },
     {
       id: "p2",
       title: "Secondo Progetto",
       description: "Test del secondo progetto",
       date: new Date(),
-      tasks: [],
+      tasks: [
+        {
+          taskId: "t1",
+          description: "Prima task",
+        },
+        {
+          taskId: "t2",
+          description: "Seconda task",
+        },
+      ],
     },
   ],
   currentProject: null,
@@ -73,13 +87,32 @@ function App() {
     setProjects((prevProjects) => ({ ...prevProjects, currentProject: index }));
   }
 
+  //tasks
+  function deleteTask(taskId, project) {
+    setProjects((prevProjects) => {
+      const newTasks = project.tasks.filter((task) => task.taskId != taskId);
+      const newProject = prevProjects.projectList.find(
+        (projectObj) => projectObj.id == project.id
+      );
+
+      newProject.tasks = newTasks;
+
+      const newList = [...prevProjects.projectList];
+      return {
+        projectList: newList,
+        currentProject: project.id,
+      };
+    });
+  }
+
   //Possibile migliorare la logica mettendo noProjectSelected dentro Project
   let currentProject = projects.currentProject ? (
     <Project
       project={projects.projectList.find(
         (project) => project.id == projects.currentProject
       )}
-      onDelete={deleteProject}
+      onProjectDelete={deleteProject}
+      onTaskDelete={deleteTask}
     />
   ) : (
     <NoProjectSelected onAdd={handleFormOpen} />
