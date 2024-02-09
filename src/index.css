@@ -168,6 +168,11 @@ input {
   padding: 0 0.7rem;
 }
 
+.project-tasks .input-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .tasks-list {
   margin: 2rem 0;
   padding: 1rem;
@@ -206,4 +211,42 @@ input {
 
 .action-buttons {
   text-align: right;
+}
+
+/* media query */
+@media screen and (max-width: 620px) {
+  main {
+    padding: 2rem 1rem 0 1rem;
+  }
+  .add-btn-blank {
+    margin: 1rem 0;
+  }
+}
+
+@media screen and (max-width: 477px) {
+  #root {
+    display: block;
+  }
+
+  main {
+    padding: 3rem;
+  }
+
+  .no-project-container img {
+    display: inline-block;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 315px) {
+  form .action-buttons button {
+    display: block;
+    margin: 1rem 0;
+  }
+}
+
+@media screen and (max-width: 230px) {
+  main {
+    padding: 1rem;
+  }
 }

@@ -17,7 +17,7 @@ export default function Project({ project }) {
         <h2>Tasks</h2>
         <div>
           <label> New task</label>
-          <div>
+          <div className="input-wrapper">
             <input />
             <button className="add-btn-blank"> Add </button>
           </div>
