@@ -4,6 +4,7 @@ import NewProjectForm from "./components/NewProjectForm";
 import NoProjectSelected from "./components/NoProjectSelected";
 import { useState } from "react";
 import Project from "./components/Project";
+import Navbar from "./components/Navbar";
 
 const defaultProjects = {
   projectList: [
@@ -56,24 +57,7 @@ function App() {
 
   return (
     <>
-      <nav className="nav">
-        <h2>YOUR PROJECTS</h2>
-        <button className="add-btn" onClick={handleAddProject}>
-          + Add Project
-        </button>
-        <ul>
-          {projects.projectList.map((project) => {
-            return (
-              <li
-                key={project.id}
-                onClick={() => handleProjectChange(project.id)}
-              >
-                {project.title}
-              </li>
-            );
-          })}
-        </ul>
-      </nav>
+      <Navbar addProject={handleAddProject} projects={projects} projectChange={handleProjectChange} />
       <main>
         {isFormActive ? (
           <NewProjectForm onCancel={handleFormCancel} />
