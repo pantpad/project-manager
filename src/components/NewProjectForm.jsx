@@ -16,6 +16,7 @@ export default function NewProjectForm({ onCancel, onAdd }) {
         <div className="action-buttons">
           <Button onClick={onCancel}>Cancel</Button>
           <Button
+            type="submit"
             variant="save"
             onClick={(e) => {
               e.preventDefault();

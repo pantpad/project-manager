@@ -32,14 +32,9 @@ function App() {
   const [isFormActive, setIsFormActive] = useState(false);
 
   //gestione apertura form
-  function handleFormCancel() {
-    setIsFormActive(false);
+  function handleFormOpen() {
+    setIsFormActive((prev) => !prev);
   }
-
-  function handleAddProject() {
-    setIsFormActive(true);
-  }
-  /////////////////////////
 
   //project
 
@@ -75,19 +70,19 @@ function App() {
       )}
     />
   ) : (
-    <NoProjectSelected onAdd={handleAddProject} />
+    <NoProjectSelected onAdd={handleFormOpen} />
   );
 
   return (
     <>
       <Navbar
-        addProject={handleAddProject}
+        addProject={handleFormOpen}
         projects={projects}
         projectChange={handleProjectChange}
       />
       <main>
         {isFormActive ? (
-          <NewProjectForm onCancel={handleFormCancel} onAdd={addProject} />
+          <NewProjectForm onCancel={handleFormOpen} onAdd={addProject} />
         ) : (
           currentProject
         )}
