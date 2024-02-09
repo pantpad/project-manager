@@ -5,11 +5,10 @@ import Input from "./ui/Input/Input";
 
 import { useRef } from "react";
 
-export default function NewProjectForm({ onCancel, onAdd }) {
+export default function NewProjectForm({ handleOpenModal, onCancel }) {
   const title = useRef();
   const description = useRef();
   const date = useRef();
-
   return (
     <>
       <form
@@ -26,7 +25,8 @@ export default function NewProjectForm({ onCancel, onAdd }) {
             type="submit"
             variant="save"
             onClick={() => {
-              onAdd(
+              handleOpenModal(
+                "",
                 title.current.value,
                 description.current.value,
                 date.current.value

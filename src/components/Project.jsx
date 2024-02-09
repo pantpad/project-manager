@@ -9,7 +9,8 @@ export default function Project({
   project,
   onProjectDelete,
   onTaskDelete,
-  onTaskAdd,
+  // onTaskAdd,
+  handleOpenModal,
 }) {
   const taskDescription = useRef();
 
@@ -33,7 +34,8 @@ export default function Project({
             <Input ref={taskDescription} />
             <Button
               onClick={() => {
-                onTaskAdd(project, taskDescription.current.value);
+                handleOpenModal(project, taskDescription.current.value);
+                // onTaskAdd(project, taskDescription.current.value);
               }}
             >
               Add

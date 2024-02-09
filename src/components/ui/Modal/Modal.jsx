@@ -17,8 +17,9 @@ export default forwardRef(function Modal({ className, ...props }, ref) {
       },
     };
   });
+
   return createPortal(
-    <dialog className={styleClsx(styles, className)} ref={dialog} {...props}>
+    <dialog ref={dialog} className={styleClsx(styles, className)} {...props}>
       <h1>Ciao</h1>
       <form method="dialog">
         <Button variant="primary" size="medium">
