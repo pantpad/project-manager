@@ -56,7 +56,7 @@ function App() {
 
   return (
     <>
-      <nav>
+      <nav className="nav">
         <h2>YOUR PROJECTS</h2>
         <button className="add-btn" onClick={handleAddProject}>
           + Add Project
