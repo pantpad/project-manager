@@ -120,6 +120,7 @@ function App() {
     });
   }
 
+  //refactored deleted Task using map
   function deleteTask(taskId, project) {
     setProjects((prevProjects) => {
       const updatedProjects = prevProjects.projectList.map((proj) => {
@@ -155,29 +156,36 @@ function App() {
 
   //dialog
 
-  function handleOpenModal(project = "", ...inputs) {
-    const [title, description, date] = inputs;
-    console.table(inputs);
-    if (inputs.some((input) => input == "")) {
-      console.log(dialog.current);
-      dialog.current.open();
-    } else {
-      if (inputs.length > 2) {
-        console.log("aggiungo");
-        addProject(title, description, date);
-      } else {
-        addTask(project, title);
-      }
+  function handleOpenModal(...inputs) {
+    console.log(...inputs);
+    if (areInputsEmpty(...inputs)) {
+      console.log("modal will open");
+      openModal();
+      return true;
     }
+    return false;
+    // const [title, description, date] = inputs;
+    // console.table(inputs);
+    // if (inputs.some((input) => input == "")) {
+    //   console.log(dialog.current);
+    //   dialog.current.open();
+    // } else {
+    //   if (inputs.length > 2) {
+    //     console.log("aggiungo");
+    //     addProject(title, description, date);
+    //   } else {
+    //     addTask(project, title);
+    //   }
+    // }
   }
 
-  // function checkInputs(...inputs) {
-  //   return inputs.some((input) => input == "");
-  // }
+  function areInputsEmpty(...inputs) {
+    return inputs.some((input) => input == "");
+  }
 
-  // function openModal() {
-  //   dialog.current.open();
-  // }
+  function openModal() {
+    dialog.current.open();
+  }
 
   //Possibile migliorare la logica mettendo noProjectSelected dentro Project
   let currentProject = projects.currentProject ? (
@@ -204,6 +212,7 @@ function App() {
         {isFormActive ? (
           <NewProjectForm
             onCancel={handleFormOpen}
+            onAdd={addProject}
             handleOpenModal={handleOpenModal}
           />
         ) : (

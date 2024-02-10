@@ -5,34 +5,28 @@ import Input from "./ui/Input/Input";
 
 import { useRef } from "react";
 
-export default function NewProjectForm({ handleOpenModal, onCancel }) {
+export default function NewProjectForm({ handleOpenModal, onCancel, onAdd }) {
   const title = useRef();
   const description = useRef();
   const date = useRef();
+  const inputs = [title, description, date];
+
   return (
     <>
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          title.current.value = "";
-          description.current.value = "";
-          date.current.value = "";
+          const inputsValues = inputs.map((input) => input.current.value);
+          if (!handleOpenModal(...inputsValues)) {
+            onAdd(...inputsValues);
+          }
         }}
       >
         <div className="action-buttons">
-          <Button onClick={onCancel}>Cancel</Button>
-          <Button
-            type="submit"
-            variant="save"
-            onClick={() => {
-              handleOpenModal(
-                "",
-                title.current.value,
-                description.current.value,
-                date.current.value
-              );
-            }}
-          >
+          <Button type="button" onClick={onCancel}>
+            Cancel
+          </Button>
+          <Button type="submit" variant="save">
             Save
           </Button>
         </div>
