@@ -1,0 +1,27 @@
+/* eslint-disable react/prop-types */
+
+import ProjectDetails from "./ProjectDetails";
+import ProjectTasks from "./ProjectTasks";
+
+export default function Project({
+  project,
+  onProjectDelete,
+  onTaskDelete,
+  onTaskAdd,
+  handleOpenModal,
+}) {
+  return (
+    <section id="project-container">
+      <ProjectDetails
+        currentProject={project}
+        onProjectDelete={onProjectDelete}
+      />
+      <ProjectTasks
+        handleOpenModal={handleOpenModal}
+        onTaskAdd={onTaskAdd}
+        onTaskDelete={onTaskDelete}
+        currentProject={project}
+      />
+    </section>
+  );
+}

@@ -2,7 +2,7 @@
 import "./App.css";
 import NewProjectForm from "./components/NewProjectForm";
 import NoProjectSelected from "./components/NoProjectSelected";
-import Project from "./components/Project";
+import Project from "./components/Project/Project";
 import Navbar from "./components/Navbar";
 import Modal from "./components/ui/Modal/Modal";
 
