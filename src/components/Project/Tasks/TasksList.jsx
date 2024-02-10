@@ -1,13 +1,13 @@
 /* eslint-disable react/prop-types */
 import Task from "./Task/Task";
 
-export default function TasksList({ currentProject, onTaskDelete }) {
-  const tasksList = currentProject.tasks.map((task) => (
+export default function TasksList({ projectId, projectTasks, onTaskDelete }) {
+  const tasksList = projectTasks.map((task) => (
     <Task
       key={task.taskId}
-      task={task}
-      currentProject={currentProject}
+      projectId={projectId}
       onTaskDelete={onTaskDelete}
+      {...task}
     />
   ));
 

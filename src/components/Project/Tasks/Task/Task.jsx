@@ -1,14 +1,11 @@
 /* eslint-disable react/prop-types */
 import Button from "../../../ui/Button/Button";
 
-export default function Task({ task, currentProject, onTaskDelete }) {
+export default function Task({ description, taskId, projectId, onTaskDelete }) {
   return (
     <li>
-      <span>{task.description}</span>
-      <Button
-        variant="clear"
-        onClick={() => onTaskDelete(task.taskId, currentProject)}
-      >
+      <span>{description}</span>
+      <Button variant="clear" onClick={() => onTaskDelete(taskId, projectId)}>
         Clear
       </Button>
     </li>

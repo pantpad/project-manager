@@ -97,16 +97,16 @@ function App() {
   }
 
   //tasks
-  function addTask(project, taskDescription) {
+  function addTask(taskDescription, projectId) {
     setProjects((prevProjects) => {
       const updatedProjects = prevProjects.projectList.map((proj) => {
-        if (proj.id == project.id) {
+        if (proj.id == projectId) {
           const newTasks = [
             {
-              taskId: `t${project.tasks.length + 1}`,
+              taskId: `t${proj.tasks.length + 1}`,
               description: taskDescription,
             },
-            ...project.tasks,
+            ...proj.tasks,
           ];
           return { ...proj, tasks: newTasks };
         }
@@ -121,10 +121,10 @@ function App() {
   }
 
   //refactored deleted Task using map
-  function deleteTask(taskId, project) {
+  function deleteTask(taskId, projectId) {
     setProjects((prevProjects) => {
       const updatedProjects = prevProjects.projectList.map((proj) => {
-        if (proj.id == project.id) {
+        if (proj.id == projectId) {
           return {
             ...proj,
             tasks: [...proj.tasks.filter((task) => task.taskId != taskId)],

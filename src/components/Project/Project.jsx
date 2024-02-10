@@ -12,15 +12,12 @@ export default function Project({
 }) {
   return (
     <section id="project-container">
-      <ProjectDetails
-        currentProject={project}
-        onProjectDelete={onProjectDelete}
-      />
+      <ProjectDetails {...project} onProjectDelete={onProjectDelete} />
       <ProjectTasks
+        {...project}
         handleOpenModal={handleOpenModal}
         onTaskAdd={onTaskAdd}
         onTaskDelete={onTaskDelete}
-        currentProject={project}
       />
     </section>
   );

@@ -8,11 +8,7 @@ function clearInput(input) {
   return (input.current.value = "");
 }
 
-export default function AddTask({
-  handleOpenModal,
-  onTaskAdd,
-  currentProject,
-}) {
+export default function AddTask({ projectId, handleOpenModal, onTaskAdd }) {
   const taskDescription = useRef();
 
   return (
@@ -25,7 +21,7 @@ export default function AddTask({
             type="button"
             onClick={() => {
               if (!handleOpenModal(taskDescription.current.value)) {
-                onTaskAdd(currentProject, taskDescription.current.value);
+                onTaskAdd(taskDescription.current.value, projectId);
                 clearInput(taskDescription);
               }
             }}

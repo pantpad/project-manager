@@ -4,18 +4,23 @@ import AddTask from "./Tasks/Task/AddTask";
 import TasksList from "./Tasks/TasksList";
 
 export default function ProjectTasks({
+  id,
+  tasks,
   handleOpenModal,
   onTaskAdd,
   onTaskDelete,
-  currentProject,
 }) {
-  let areThereTasks = currentProject.tasks.length > 0;
+  let areThereTasks = tasks.length > 0;
   let noTaskSection = (
     <p className="no-tasks">This project does not have any tasks yet.</p>
   );
 
   let tasksListSection = areThereTasks ? (
-    <TasksList currentProject={currentProject} onTaskDelete={onTaskDelete} />
+    <TasksList
+      projectId={id}
+      projectTasks={tasks}
+      onTaskDelete={onTaskDelete}
+    />
   ) : (
     noTaskSection
   );
@@ -27,7 +32,7 @@ export default function ProjectTasks({
         <AddTask
           handleOpenModal={handleOpenModal}
           onTaskAdd={onTaskAdd}
-          currentProject={currentProject}
+          projectId={id}
         />
         {tasksListSection}
       </div>
