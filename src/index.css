@@ -54,6 +54,7 @@ html {
 body {
   height: 100svh;
   background-color: #fafaf9;
+  position: relative;
 }
 
 #root {

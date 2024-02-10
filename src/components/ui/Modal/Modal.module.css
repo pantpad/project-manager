@@ -4,14 +4,12 @@
   padding: 2rem;
   background-color: white;
   width: 40rem;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: absolute;
+  margin: auto;
 }
 
 .base[open] {
-  animation: slide-in-from-top 0.8s ease-out;
+  animation: slide-in-from-top 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 .base::backdrop {
@@ -43,8 +41,10 @@
 @keyframes slide-in-from-top {
   0% {
     opacity: 0;
+    transform: translateY(-1000px);
   }
   100% {
     opacity: 1;
+    transform: translateY(0px);
   }
 }
