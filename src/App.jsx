@@ -154,12 +154,17 @@ function App() {
     // });
   }
 
-  //dialog
+  //dialogModal
+  function areInputsEmpty(...inputs) {
+    return inputs.some((input) => input == "");
+  }
+
+  function openModal() {
+    dialog.current.open();
+  }
 
   function handleOpenModal(...inputs) {
-    console.log(...inputs);
     if (areInputsEmpty(...inputs)) {
-      console.log("modal will open");
       openModal();
       return true;
     }
@@ -177,14 +182,6 @@ function App() {
     //     addTask(project, title);
     //   }
     // }
-  }
-
-  function areInputsEmpty(...inputs) {
-    return inputs.some((input) => input == "");
-  }
-
-  function openModal() {
-    dialog.current.open();
   }
 
   //Possibile migliorare la logica mettendo noProjectSelected dentro Project

@@ -5,11 +5,15 @@ import dateFormatter from "../utils/dateHandler";
 
 import { useRef } from "react";
 
+function clearInput(input) {
+  return (input.current.value = "");
+}
+
 export default function Project({
   project,
   onProjectDelete,
   onTaskDelete,
-  // onTaskAdd,
+  onTaskAdd,
   handleOpenModal,
 }) {
   const taskDescription = useRef();
@@ -29,13 +33,16 @@ export default function Project({
       <div className="project-tasks">
         <h2>Tasks</h2>
         <div>
-          <label> New task</label>
+          <label>New task</label>
           <div className="input-wrapper">
             <Input ref={taskDescription} />
             <Button
+              type="button"
               onClick={() => {
-                handleOpenModal(project, taskDescription.current.value);
-                // onTaskAdd(project, taskDescription.current.value);
+                if (!handleOpenModal(taskDescription.current.value)) {
+                  onTaskAdd(project, taskDescription.current.value);
+                  clearInput(taskDescription);
+                }
               }}
             >
               Add

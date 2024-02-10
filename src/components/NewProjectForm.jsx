@@ -33,11 +33,11 @@ export default function NewProjectForm({ handleOpenModal, onCancel, onAdd }) {
         <div className="form-inputs">
           <div>
             <label>TITLE</label>
-            <Input type="text" ref={title} />
+            <Input type="text" ref={title} minLength={3} maxLength={20} />
           </div>
           <div>
             <label>DESCRIPTION</label>
-            <Input isInput={false} ref={description} />
+            <Input isInput={false} ref={description} maxLength={250} />
           </div>
           <div>
             <label>DUE DATE</label>
