@@ -42,6 +42,13 @@ const defaultProjects = {
   currentProject: null,
 };
 
+//find currentProject inside projectList
+function getCurrentProject(projects) {
+  return projects.projectList.find(
+    (project) => project.id == projects.currentProject
+  );
+}
+
 function App() {
   const [projects, setProjects] = useState(defaultProjects);
   const [isFormActive, setIsFormActive] = useState(false);
@@ -159,9 +166,7 @@ function App() {
   //Possibile migliorare la logica mettendo noProjectSelected dentro Project
   let currentProject = projects.currentProject ? (
     <Project
-      project={projects.projectList.find(
-        (project) => project.id == projects.currentProject
-      )}
+      project={getCurrentProject(projects)}
       onProjectDelete={deleteProject}
       onTaskDelete={deleteTask}
       onTaskAdd={addTask}
