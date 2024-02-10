@@ -28,7 +28,9 @@ export default function Project({
           </Button>
         </div>
         <p className="date">{dateFormatter(project.date)}</p>
-        <p className="description">{project.description}</p>
+        <div className="description">
+          <p>{project.description}</p>
+        </div>
       </div>
       <div className="project-tasks">
         <h2>Tasks</h2>

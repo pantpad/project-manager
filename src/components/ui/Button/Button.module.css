@@ -31,7 +31,6 @@
 }
 
 .save {
-  margin: 0 1rem;
   color: white;
   padding: var(--padding-md);
   border-radius: var(--border-radius-sm);
@@ -39,7 +38,6 @@
 }
 
 .delete {
-  margin: 0 1rem;
   color: aliceblue;
   background-color: brown;
   padding: var(--padding-md);

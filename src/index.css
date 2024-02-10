@@ -158,6 +158,11 @@ input {
   padding: 0.5rem 0 1rem;
 }
 
+.project-details .description {
+  max-width: 80ch;
+  overflow-wrap: break-word;
+}
+
 .project-tasks h2,
 .no-tasks {
   padding: 1rem 0;
