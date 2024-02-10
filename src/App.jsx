@@ -122,19 +122,35 @@ function App() {
 
   function deleteTask(taskId, project) {
     setProjects((prevProjects) => {
-      const newTasks = project.tasks.filter((task) => task.taskId != taskId);
-      const newProject = prevProjects.projectList.find(
-        (projectObj) => projectObj.id == project.id
-      );
+      const updatedProjects = prevProjects.projectList.map((proj) => {
+        if (proj.id == project.id) {
+          return {
+            ...proj,
+            tasks: [...proj.tasks.filter((task) => task.taskId != taskId)],
+          };
+        }
+        return proj;
+      });
 
-      newProject.tasks = newTasks;
-
-      const newList = [...prevProjects.projectList];
       return {
-        projectList: newList,
-        currentProject: project.id,
+        ...prevProjects,
+        projectList: updatedProjects,
       };
     });
+    // setProjects((prevProjects) => {
+    //   const newTasks = project.tasks.filter((task) => task.taskId != taskId);
+    //   const newProject = prevProjects.projectList.find(
+    //     (projectObj) => projectObj.id == project.id
+    //   );
+
+    //   newProject.tasks = newTasks;
+
+    //   const newList = [...prevProjects.projectList];
+    //   return {
+    //     projectList: newList,
+    //     currentProject: project.id,
+    //   };
+    // });
   }
 
   //dialog
