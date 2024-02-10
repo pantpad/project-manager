@@ -7,5 +7,5 @@ export function styleClsx(styles, className, ...inputs) {
 
   classes += ` ${styles[className] ?? className ?? ""}`;
 
-  return classes;
+  return classes.trimEnd();
 }
