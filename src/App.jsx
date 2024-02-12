@@ -51,11 +51,14 @@ function getCurrentProject(projects) {
 
 function App() {
   const [projects, setProjects] = useState(defaultProjects);
-  const [isFormActive, setIsFormActive] = useState(false);
   const dialog = useRef();
   //gestione apertura form
+
   function handleFormOpen() {
-    setIsFormActive((prev) => !prev);
+    setProjects((prevProjects)=>({
+      ...prevProjects,
+      currentProject: prevProjects.currentProject !== undefined ? undefined : null,
+    }));
   }
 
   //project
@@ -74,9 +77,9 @@ function App() {
       return {
         ...prevProjects,
         projectList: newList,
+        currentProject: null,
       };
     });
-    handleFormOpen();
   }
 
   function deleteProject(id) {
@@ -92,7 +95,6 @@ function App() {
   }
 
   function handleProjectChange(index) {
-    setIsFormActive(false);
     setProjects((prevProjects) => ({ ...prevProjects, currentProject: index }));
   }
 
@@ -179,7 +181,7 @@ function App() {
         projectChange={handleProjectChange}
       />
       <main>
-        {isFormActive ? (
+        {projects.currentProject === undefined ? (
           <NewProjectForm
             onCancel={handleFormOpen}
             onAdd={addProject}
