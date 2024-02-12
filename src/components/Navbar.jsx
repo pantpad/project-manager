@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import Button from "./ui/Button/Button";
+import ProjectList from "./Project/ProjectList";
 
 export default function Navbar({ addProject, projects, projectChange }) {
   return (
@@ -14,21 +15,7 @@ export default function Navbar({ addProject, projects, projectChange }) {
       >
         + Add Project
       </Button>
-      <ul>
-        {projects.projectList.map((project) => {
-          return (
-            <li
-              className={
-                project.id == projects.currentProject ? "current-project" : ""
-              }
-              key={project.id}
-              onClick={() => projectChange(project.id)}
-            >
-              {project.title}
-            </li>
-          );
-        })}
-      </ul>
+      <ProjectList projects={projects} onProjectChange={projectChange} />
     </nav>
   );
 }

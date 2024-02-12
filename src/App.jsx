@@ -72,8 +72,8 @@ function App() {
         },
       ];
       return {
+        ...prevProjects,
         projectList: newList,
-        currentProject: prevProjects.currentProject,
       };
     });
     handleFormOpen();
@@ -138,20 +138,6 @@ function App() {
         projectList: updatedProjects,
       };
     });
-    // setProjects((prevProjects) => {
-    //   const newTasks = project.tasks.filter((task) => task.taskId != taskId);
-    //   const newProject = prevProjects.projectList.find(
-    //     (projectObj) => projectObj.id == project.id
-    //   );
-
-    //   newProject.tasks = newTasks;
-
-    //   const newList = [...prevProjects.projectList];
-    //   return {
-    //     projectList: newList,
-    //     currentProject: project.id,
-    //   };
-    // });
   }
 
   //dialogModal
@@ -169,19 +155,6 @@ function App() {
       return true;
     }
     return false;
-    // const [title, description, date] = inputs;
-    // console.table(inputs);
-    // if (inputs.some((input) => input == "")) {
-    //   console.log(dialog.current);
-    //   dialog.current.open();
-    // } else {
-    //   if (inputs.length > 2) {
-    //     console.log("aggiungo");
-    //     addProject(title, description, date);
-    //   } else {
-    //     addTask(project, title);
-    //   }
-    // }
   }
 
   //Possibile migliorare la logica mettendo noProjectSelected dentro Project
