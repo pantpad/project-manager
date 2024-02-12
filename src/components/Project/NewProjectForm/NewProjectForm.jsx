@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-
-import Button from "./ui/Button/Button";
-import Input from "./ui/Input/Input";
+import styles from "./NewProjectForm.module.css";
+import Button from "../../ui/Button/Button";
+import Input from "../../ui/Input/Input";
 
 import { useRef } from "react";
 
@@ -20,9 +20,8 @@ export default function NewProjectForm({ handleOpenModal, onCancel, onAdd }) {
           if (!handleOpenModal(...inputsValues)) {
             onAdd(...inputsValues);
           }
-        }}
-      >
-        <div className="action-buttons">
+        }}>
+        <div className={styles.actionButtons}>
           <Button type="button" onClick={onCancel}>
             Cancel
           </Button>
@@ -30,7 +29,7 @@ export default function NewProjectForm({ handleOpenModal, onCancel, onAdd }) {
             Save
           </Button>
         </div>
-        <div className="form-inputs">
+        <div className={styles.formInputs}>
           <div>
             <label>TITLE</label>
             <Input type="text" ref={title} minLength={3} maxLength={20} />

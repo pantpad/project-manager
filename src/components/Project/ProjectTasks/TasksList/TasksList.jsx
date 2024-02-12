@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
-import Task from "./Task/Task";
+import Task from "../Task/Task";
+import styles from "./TasksList.module.css";
 
 export default function TasksList({ projectId, projectTasks, onTaskDelete }) {
   const tasksList = projectTasks.map((task) => (
@@ -11,5 +12,5 @@ export default function TasksList({ projectId, projectTasks, onTaskDelete }) {
     />
   ));
 
-  return <ul className="tasks-list">{tasksList}</ul>;
+  return <ul className={styles.tasksList}>{tasksList}</ul>;
 }

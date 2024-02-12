@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
-import Button from "../ui/Button/Button";
-import dateFormatter from "../../utils/dateHandler";
+import Button from "../../ui/Button/Button";
+import dateFormatter from "../../../utils/dateHandler";
+import styles from "./ProjectDetails.module.css";
 
 export default function ProjectDetails({
   id,
@@ -11,8 +12,8 @@ export default function ProjectDetails({
 }) {
   return (
     <>
-      <div className="project-details">
-        <div className="title-delete-wrapper">
+      <div className={styles.projectDetails}>
+        <div className={styles.titleDeleteWrapper}>
           <h1>{title}</h1>
           <Button variant="delete" onClick={() => onProjectDelete(id)}>
             Delete

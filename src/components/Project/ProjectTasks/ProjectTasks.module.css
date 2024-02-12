@@ -1,0 +1,12 @@
+.projectTasks h2,
+.noTasks {
+  padding: 1rem 0;
+}
+
+.projectTasks input {
+  width: 15rem;
+}
+
+.projectTasks button {
+  padding: 0 0.7rem;
+}

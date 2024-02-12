@@ -63,53 +63,6 @@ body {
   height: 100%;
 }
 
-nav {
-  flex: 1;
-  background-color: var(--nav-bg);
-  padding: 4rem 2rem;
-  border-top-right-radius: 10px;
-  max-height: 100svh;
-}
-
-nav h2 {
-  color: var(--nav-main-text);
-}
-
-nav ul {
-  overflow: auto;
-  max-height: calc(100svh - 300px);
-}
-
-nav ul::-webkit-scrollbar {
-  width: 0.5em;
-}
-nav ul::-webkit-scrollbar-button {
-  display: none;
-}
-nav ul::-webkit-scrollbar-track {
-  background-color: var(--button-add-bg);
-  border-radius: 100vw;
-}
-nav ul::-webkit-scrollbar-thumb {
-  height: 10px;
-  border-radius: 100vw;
-  border: 0.25px solid var(--button-add-bg);
-  background-color: #1c1917;
-}
-
-nav li {
-  color: var(--nav-secondary-text);
-  margin-bottom: 1rem;
-  padding: 1rem;
-  transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-nav li:hover {
-  background-color: var(--nav-bg-selected-text);
-}
-
-nav li.current-project {
-  background-color: var(--nav-bg-selected-text);
-}
 
 main {
   flex: 4;
@@ -117,13 +70,6 @@ main {
   padding: 4rem 7rem 4rem 2rem;
 }
 
-.no-project-container {
-  text-align: center;
-}
-
-.no-project-container > * {
-  margin-bottom: 15px;
-}
 
 input {
   padding: 0.7rem;
@@ -133,98 +79,10 @@ input {
   background-color: var(--bg-input);
 }
 
-/* no-project */
-.no-project-container h2 {
-  color: var(--no-project-text);
-}
-
-.no-project-container p {
-  color: grey;
-  padding: 1rem 0;
-}
-
-/* project show */
-.title-delete-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.project-details {
-  padding-bottom: 1rem;
-  border-bottom: 2px solid grey;
-}
-
-.project-details .date {
-  color: grey;
-  padding: 0.5rem 0 1rem;
-}
-
-.project-details .description {
-  max-width: 80ch;
-  overflow-wrap: break-word;
-}
-
-.project-tasks h2,
-.no-tasks {
-  padding: 1rem 0;
-}
-
-.project-tasks input {
-  width: 15rem;
-}
-
-.project-tasks button {
-  padding: 0 0.7rem;
-}
-
-.project-tasks .input-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.tasks-list {
-  margin: 2rem 0;
-  padding: 1rem;
-  background-color: var(--bg-tasks);
-}
-
-.tasks-list li {
-  padding: 0.7rem 0;
-  display: flex;
-  justify-content: space-between;
-}
-
-/* new project form */
-.form-inputs label {
-  font-weight: 600;
-  display: block;
-  font-size: 1.2rem;
-  color: var(--button-add-bg);
-  margin-bottom: 0.2rem;
-}
-
-.form-inputs input {
-  width: 100%;
-}
-
-.form-inputs div {
-  padding: 0.5rem 0;
-}
-
-.action-buttons {
-  display: flex;
-  gap: 1em;
-  justify-content: flex-end;
-}
-
 /* media query */
 @media screen and (max-width: 620px) {
   main {
     padding: 2rem 1rem 0 1rem;
-  }
-  .add-btn-blank {
-    margin: 1rem 0;
   }
 }
 
@@ -235,18 +93,6 @@ input {
 
   main {
     padding: 3rem;
-  }
-
-  .no-project-container img {
-    display: inline-block;
-    text-align: center;
-  }
-}
-
-@media screen and (max-width: 315px) {
-  form .action-buttons button {
-    display: block;
-    margin: 1rem 0;
   }
 }
 

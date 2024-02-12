@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
 
-import AddTask from "./Tasks/Task/AddTask";
-import TasksList from "./Tasks/TasksList";
+import AddTask from "./Task/AddTask";
+import TasksList from "./TasksList/TasksList";
+import styles from "./ProjectTasks.module.css";
 
 export default function ProjectTasks({
   id,
@@ -12,7 +13,7 @@ export default function ProjectTasks({
 }) {
   let areThereTasks = tasks.length > 0;
   let noTaskSection = (
-    <p className="no-tasks">This project does not have any tasks yet.</p>
+    <p className={styles.noTasks}>This project does not have any tasks yet.</p>
   );
 
   let tasksListSection = areThereTasks ? (
@@ -27,7 +28,7 @@ export default function ProjectTasks({
 
   return (
     <>
-      <div className="project-tasks">
+      <div className={styles.projectTasks}>
         <h2>Tasks</h2>
         <AddTask
           handleOpenModal={handleOpenModal}

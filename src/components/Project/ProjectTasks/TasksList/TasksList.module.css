@@ -1,0 +1,11 @@
+.tasksList {
+    margin: 2rem 0;
+    padding: 1rem;
+    background-color: var(--bg-tasks);
+  }
+  
+  .tasksList li {
+    padding: 0.7rem 0;
+    display: flex;
+    justify-content: space-between;
+  }

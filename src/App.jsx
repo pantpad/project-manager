@@ -1,9 +1,9 @@
 /* eslint-disable react/no-unknown-property */
 import "./App.css";
-import NewProjectForm from "./components/NewProjectForm";
-import NoProjectSelected from "./components/NoProjectSelected";
+import NewProjectForm from "./components/Project/NewProjectForm/NewProjectForm";
+import NoProjectSelected from "./components/Project/NoProjectSelected/NoProjectSelected";
 import Project from "./components/Project/Project";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 import Modal from "./components/ui/Modal/Modal";
 
 import { useState, useRef } from "react";
@@ -55,9 +55,10 @@ function App() {
   //gestione apertura form
 
   function handleFormOpen() {
-    setProjects((prevProjects)=>({
+    setProjects((prevProjects) => ({
       ...prevProjects,
-      currentProject: prevProjects.currentProject !== undefined ? undefined : null,
+      currentProject:
+        prevProjects.currentProject !== undefined ? undefined : null,
     }));
   }
 

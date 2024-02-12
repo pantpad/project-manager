@@ -1,0 +1,13 @@
+.li {
+  color: var(--nav-secondary-text);
+  margin-bottom: 1rem;
+  padding: 1rem;
+  transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.li:hover {
+  background-color: var(--nav-bg-selected-text);
+}
+
+.li.current-project {
+  background-color: var(--nav-bg-selected-text);
+}

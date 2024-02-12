@@ -1,0 +1,29 @@
+.nav {
+  flex: 1;
+  background-color: var(--nav-bg);
+  padding: 4rem 2rem;
+  border-top-right-radius: 10px;
+  max-height: 100svh;
+}
+
+.nav h2 {
+  color: var(--nav-main-text);
+}
+
+.nav ul::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+.nav ul::-webkit-scrollbar-button {
+  display: none;
+}
+.nav ul::-webkit-scrollbar-track {
+  background-color: var(--button-add-bg);
+  border-radius: 100vw;
+}
+.nav ul::-webkit-scrollbar-thumb {
+  height: 10px;
+  border-radius: 100vw;
+  border: 0.25px solid var(--button-add-bg);
+  background-color: #1c1917;
+}

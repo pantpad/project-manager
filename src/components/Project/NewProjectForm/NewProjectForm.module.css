@@ -1,0 +1,30 @@
+/* new project form */
+.formInputs label {
+  font-weight: 600;
+  display: block;
+  font-size: 1.2rem;
+  color: var(--button-add-bg);
+  margin-bottom: 0.2rem;
+}
+
+.formInputs input {
+  width: 100%;
+}
+
+.formInputs div {
+  padding: 0.5rem 0;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 1em;
+  justify-content: flex-end;
+}
+
+
+@media screen and (max-width: 315px) {
+  form .actionButtons button {
+    display: block;
+    margin: 1rem 0;
+  }
+}

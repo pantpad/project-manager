@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
-import ProjectDetails from "./ProjectDetails";
-import ProjectTasks from "./ProjectTasks";
+import ProjectDetails from "./ProjectDetails/ProjectDetails";
+import ProjectTasks from "./ProjectTasks/ProjectTasks";
 
 export default function Project({
   project,

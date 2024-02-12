@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import Button from "../../../ui/Button/Button";
 import Input from "../../../ui/Input/Input";
+import styles from "./AddTask.module.css";
 
 import { useRef } from "react";
 
@@ -15,7 +16,7 @@ export default function AddTask({ projectId, handleOpenModal, onTaskAdd }) {
     <>
       <div className="add-task">
         <label>New task</label>
-        <div className="input-wrapper">
+        <div className={styles.inputWrapper}>
           <Input ref={taskDescription} />
           <Button
             type="button"

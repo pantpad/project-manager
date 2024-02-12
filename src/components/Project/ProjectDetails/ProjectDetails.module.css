@@ -1,0 +1,20 @@
+.projectDetails {
+    padding-bottom: 1rem;
+    border-bottom: 2px solid grey;
+  }
+  
+  .projectDetails .date {
+    color: grey;
+    padding: 0.5rem 0 1rem;
+  }
+  
+  .projectDetails .description {
+    max-width: 80ch;
+    overflow-wrap: break-word;
+  }
+  
+  .titleDeleteWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
