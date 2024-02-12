@@ -7,38 +7,10 @@ import Navbar from "./components/Navbar/Navbar";
 import Modal from "./components/ui/Modal/Modal";
 
 import { useState, useRef } from "react";
+import generateUniqueID from "./utils/uniqueIdGenerator";
 
 const defaultProjects = {
-  projectList: [
-    {
-      id: "p1",
-      title: "Primo Progetto",
-      description: "Test del primo progetto",
-      date: new Date(),
-      tasks: [
-        {
-          taskId: "t1",
-          description: "Prima task",
-        },
-      ],
-    },
-    {
-      id: "p2",
-      title: "Secondo Progetto",
-      description: "Test del secondo progetto",
-      date: new Date(),
-      tasks: [
-        {
-          taskId: "t1",
-          description: "Prima task",
-        },
-        {
-          taskId: "t2",
-          description: "Seconda task",
-        },
-      ],
-    },
-  ],
+  projectList: [],
   currentProject: null,
 };
 
@@ -52,7 +24,6 @@ function getCurrentProject(projects) {
 function App() {
   const [projects, setProjects] = useState(defaultProjects);
   const dialog = useRef();
-  //gestione apertura form
 
   function handleFormOpen() {
     setProjects((prevProjects) => ({
@@ -68,7 +39,7 @@ function App() {
       const newList = [
         ...prevProjects.projectList,
         {
-          id: `p${prevProjects.projectList.length + 1}`,
+          id: generateUniqueID(),
           title: title,
           description: description,
           date: new Date(date),
@@ -106,7 +77,7 @@ function App() {
         if (proj.id == projectId) {
           const newTasks = [
             {
-              taskId: `t${proj.tasks.length + 1}`,
+              taskId: generateUniqueID(),
               description: taskDescription,
             },
             ...proj.tasks,
@@ -123,7 +94,6 @@ function App() {
     });
   }
 
-  //refactored deleted Task using map
   function deleteTask(taskId, projectId) {
     setProjects((prevProjects) => {
       const updatedProjects = prevProjects.projectList.map((proj) => {
