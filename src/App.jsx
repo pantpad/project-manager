@@ -14,7 +14,7 @@ const defaultProjects = {
   currentProject: null,
 };
 
-//find currentProject inside projectList
+//find currentProject inside projectListTasks
 function getCurrentProject(projects) {
   return projects.projectList.find(
     (project) => project.id == projects.currentProject
