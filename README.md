@@ -1,8 +1,23 @@
-# React + Vite
+# Projects Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Cosa deve fare?
 
-Currently, two official plugins are available:
+- Aggiungere progetti e task per ogni singolo progetto.
+- Gestire l'eliminazione di ogni singolo task per progetto e del task per intero.
+- Gestire errore aprendo una modale nel caso i campi non vengano compilati
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Requisiti Tecnici
+
+- button altamente riutilizzabile
+- input altamente riutilizzabile che gestisca sia input che textarea
+- modal altamente riutilizzabile con funzione API esposta
+
+- usare hook useState non più di due volte in tutto il progetto
+- BONUS: al termine della challenge bisogna assicurarsi che tutta l'app giri per un unico useState
+
+- usare sempre e solo useRef per la gestione dei vari input, textarea e per l'apertura della modal
+
+- rendere le funzioni estremamente parlanti.
+
+- sorting projects dal piuù vecchio al più recente (da aggiungere sotto)
+- sorting tasks dal più recente al più vecchio(da aggiungere IN CIMA)
